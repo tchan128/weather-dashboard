@@ -1,4 +1,7 @@
 var city;
+var temperature;
+var wind;
+var humidity;
 
 $('.search-btn').click(function(event){
     city = $("#userInput").val();
@@ -6,31 +9,31 @@ $('.search-btn').click(function(event){
 
     var geoCodeAPI = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=0d65026d9cfca54d99c9baa64c87a051`
 
-    var lat;
-    var lon;
+    var latitude;
+    var longitude;
 
     fetch(geoCodeAPI)
-        .then(function (response) {
-        return response.json();
+        .then(function (geoCode) {
+            return geoCode.json();
         })
-        .then(function (data) {
-        console.log(data)
-        lat = data[0].lat;
-        lon = data[0].lon;
+        .then(function (geoCode) {
+            console.log(geoCode)
+            latitude = Number(geoCode[0].lat);
+            longitude = Number(geoCode[0].lon);
+            var weatherAPI = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=imperial&appid=0d65026d9cfca54d99c9baa64c87a051`
+            fetch(weatherAPI)
+        .then(function (weather) {
+            return weather.json();
+        })
+        .then(function (weather) {
+            console.log(weather)
+            temperature = weather.list[0].main.feels_like;
+            wind = weather.list[0].wind.speed;
+            humidity = weather.list[0].main.humidity;
+        })
     });
 
-    var weatherAPI = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=0d65026d9cfca54d99c9baa64c87a051`
 
-    var temperature;
-    var wind;
-    var humidity;
 
-    fetch(weatherAPI)
-        .then(function (response) {
-        return response.json();
-        })
-        .then(function (data) {
-        console.log(data)
-    });
 
 })
