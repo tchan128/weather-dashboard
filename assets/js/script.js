@@ -26,14 +26,13 @@ $('.search-btn').click(function(event){
             return weather.json();
         })
         .then(function (weather) {
-            console.log(weather)
+            console.log(weather);
             temperature = weather.list[0].main.feels_like;
             wind = weather.list[0].wind.speed;
             humidity = weather.list[0].main.humidity;
+            city = weather.city.name;
+
+            $(`#city`).text(`${city} (${dayjs().format("M/D/YYYY")})`);
         })
     });
-
-
-
-
 })
