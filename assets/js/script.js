@@ -4,9 +4,14 @@ var wind;
 var humidity;
 var timeStamp = [6, 14, 22, 30, 38]
 
+
+// Function to clear weather card
+
 function clear() {
     $(".weather-card").empty();
 }
+
+//Function to fetch API and display all necessary data
 
 function fetchWeather(geoAPI) {
     var latitude;
@@ -78,6 +83,20 @@ function fetchWeather(geoAPI) {
     });
 };
 
+function addHistory() {
+    if (localStorage.getItem("city") != null) {
+        var historyList = JSON.parse(localStorage.getItem("city"));
+        for (var i = 0; i < historyList.length; i++) {
+            var prevBtn = $("<button></button>");
+            prevBtn.attr("id", "history");
+            prevBtn.text(historyList[i]);
+            $(".history").append(prevBtn);
+        }
+    }
+};
+
+addHistory();
+
 $('.search-btn').click(function(event){
     clear();
     city = $("#userInput").val();
@@ -95,5 +114,11 @@ $('.search-btn').click(function(event){
         currentList.push(city);
         localStorage.setItem("city", JSON.stringify(currentList));
     }
+
+    var prevBtn = $("<button></button>");
+    prevBtn.attr("id", "history");
+    prevBtn.text(city);
+    $(".history").append(prevBtn);
 })
+
 
