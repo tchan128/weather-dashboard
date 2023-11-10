@@ -69,12 +69,12 @@ button:hover {
     background-color: #3462a6;
 }
 
-#history {
+.history-city {
     background-color: rgb(175, 175, 175);
     margin: 15px 0px 0px 0px;
 }
 
-#history:hover{
+.history-city:hover{
     background-color: rgb(138, 137, 137);
 }
 

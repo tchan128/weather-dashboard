@@ -4,7 +4,6 @@ var wind;
 var humidity;
 var timeStamp = [6, 14, 22, 30, 38]
 
-
 // Function to clear weather card
 
 function clear() {
@@ -83,15 +82,39 @@ function fetchWeather(geoAPI) {
     });
 };
 
+// Function to add previously add previously selected cities into search list
+
 function addHistory() {
     if (localStorage.getItem("city") != null) {
         var historyList = JSON.parse(localStorage.getItem("city"));
         for (var i = 0; i < historyList.length; i++) {
             var prevBtn = $("<button></button>");
-            prevBtn.attr("id", "history");
+            prevBtn.addClass("history-city");
             prevBtn.text(historyList[i]);
+            prevBtn.attr("id", historyList[i]);
             $(".history").append(prevBtn);
         }
+    }
+};
+
+// Function to add to local storage
+
+function addCity(city) {
+
+    var prevBtn = $("<button></button>");
+    prevBtn.attr("id", city);
+    prevBtn.addClass("history-city");
+    prevBtn.text(city);
+    $(".history").append(prevBtn);
+    
+    if (localStorage.getItem("city") === null) {
+        var cityList = [];
+        cityList.push(city);
+        localStorage.setItem("city", JSON.stringify(cityList));
+    } else {
+        var currentList = JSON.parse(localStorage.getItem("city"));
+        currentList.push(city);
+        localStorage.setItem("city", JSON.stringify(currentList));
     }
 };
 
@@ -105,20 +128,20 @@ $('.search-btn').click(function(event){
 
     fetchWeather(geoCodeAPI);
 
-    if (localStorage.getItem("city") === null) {
-        var cityList = [];
-        cityList.push(city);
-        localStorage.setItem("city", JSON.stringify(cityList));
-    } else {
-        var currentList = JSON.parse(localStorage.getItem("city"));
-        currentList.push(city);
-        localStorage.setItem("city", JSON.stringify(currentList));
-    }
-
-    var prevBtn = $("<button></button>");
-    prevBtn.attr("id", "history");
-    prevBtn.text(city);
-    $(".history").append(prevBtn);
+    addCity(city);
+    $("#userInput").val("");
 })
+
+
+$('.history-city').click(function(event){
+    clear();
+    var cityClass = event.target.id;
+    console.log(cityClass);
+
+    var geoCodeAPI = `http://api.openweathermap.org/geo/1.0/direct?q=${cityClass}&appid=0d65026d9cfca54d99c9baa64c87a051`
+
+    fetchWeather(geoCodeAPI);
+})
+
 
 
