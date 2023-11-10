@@ -114,10 +114,16 @@ h3 {
 }
 
 .city-date {
-    display: inline;
-}
+    display: inline;}
 
 img {
     width: 50px;
     height: 50px;
+}
+
+h4 {
+    font-family: 'Jost', sans-serif;
+    margin: 10px 0px 0px 0px;
+    color: rgb(169, 166, 166);
+    font-style: italic;
 }

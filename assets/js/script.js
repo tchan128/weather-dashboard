@@ -4,21 +4,15 @@ var wind;
 var humidity;
 var timeStamp = [6, 14, 22, 30, 38]
 
-function emojiAssign(condition) {
-    if (condition === "light snow") {
-    }
+function clear() {
+    $(".weather-card").empty();
 }
 
-$('.search-btn').click(function(event){
-    city = $("#userInput").val();
-    console.log(city);
-
-    var geoCodeAPI = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=0d65026d9cfca54d99c9baa64c87a051`
-
+function fetchWeather(geoAPI) {
     var latitude;
     var longitude;
 
-    fetch(geoCodeAPI)
+    fetch(geoAPI)
         .then(function (geoCode) {
             return geoCode.json();
         })
@@ -38,12 +32,13 @@ $('.search-btn').click(function(event){
             wind = weather.list[0].wind.speed;
             humidity = weather.list[0].main.humidity;
             code = weather.list[0].weather[0].icon;
+
             var iconLink = `https://openweathermap.org/img/wn/${code}@2x.png`;
             var weatherIcon = $("<img />");
             weatherIcon.attr("src", iconLink);
 
             $(`#city`).text(`${city} (${dayjs().format("M/D/YYYY")})`);
-            // weatherIcon.insertAfter("#city");
+            $(`.main-img`).append(weatherIcon);
             $(`#temp`).text(`${temperature} ºF`);
             $(`#wind`).text(`${wind} MPH`);
             $(`#humidity`).text(`${humidity} %`);
@@ -81,4 +76,13 @@ $('.search-btn').click(function(event){
             }
         })
     });
+};
+
+$('.search-btn').click(function(event){
+    clear();
+    city = $("#userInput").val();
+
+    var geoCodeAPI = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=0d65026d9cfca54d99c9baa64c87a051`
+
+    fetchWeather(geoCodeAPI);
 })
