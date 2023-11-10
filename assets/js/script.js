@@ -85,4 +85,15 @@ $('.search-btn').click(function(event){
     var geoCodeAPI = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=0d65026d9cfca54d99c9baa64c87a051`
 
     fetchWeather(geoCodeAPI);
+
+    if (localStorage.getItem("city") === null) {
+        var cityList = [];
+        cityList.push(city);
+        localStorage.setItem("city", JSON.stringify(cityList));
+    } else {
+        var currentList = JSON.parse(localStorage.getItem("city"));
+        currentList.push(city);
+        localStorage.setItem("city", JSON.stringify(currentList));
+    }
 })
+
