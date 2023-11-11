@@ -133,7 +133,7 @@ $('.search-btn').click(function(event){
 })
 
 
-$('.history-city').click(function(event){
+$('.history').click(function(event){
     clear();
     var cityClass = event.target.id;
     console.log(cityClass);
