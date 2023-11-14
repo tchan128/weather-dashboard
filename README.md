@@ -38,7 +38,7 @@ Nothing is needed to install this project. It is deployed on pages through Gitla
  
 ## Usage
 
-In this project, a weather dashboard is built to help users retrieve the current and future forecast of a selected city. Users can search a city in the search box and the app should be able to search the coordinates needed for the weather API via the GeoCoding API. Once a city is searched, the app will generate the current forecast include information such as: city name, icon indicating weather forecast, temperature, wind speed, and humidity. Additionally, it will also pull the information for the next 5 days as well and display it on the 5-day forecast section. Each searched city will be saved in the previously searched area so that users can access their history easily. When users re-visit the dashboard, they should see their previously searched cities populated there. 
+In this project, a weather dashboard is built to help users retrieve the current and future forecasts of a selected city. Users can search a city in the search box and the app should be able to search the coordinates needed for the weather API via the GeoCoding API. Once a city is searched, the app will generate the current forecast including information such as city name, icon indicating weather forecast, temperature, wind speed, and humidity. Additionally, it will also pull the information for the next 5 days as well and display it in the 5-day forecast section. Each searched city will be saved in the previously searched area so that users can access their history easily. When users re-visit the dashboard, they should see their previously searched cities populated there. 
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -66,13 +66,13 @@ In this project, a weather dashboard is built to help users retrieve the current
 
 ## Credits
 
-This weather dashboard was built from scratch, however the design of the dashboard is derived from a sample that UofT Bootcamp provided. 
+This weather dashboard was built from scratch, however, the design of the dashboard is derived from a sample that UofT Bootcamp provided. 
 
-In addition to that, some websites that helped with the build of this code quiz includes:
+In addition to that, some websites that helped with the build of this weather dashboard include:
 
 - Event Listener MDN: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 
-The API's that are used in this project:
+The APIs that are used in this project:
 - Open Weather: https://openweathermap.org/forecast5#example_JSON
 - GeoCode: https://openweathermap.org/forecast5#geocoding
 
