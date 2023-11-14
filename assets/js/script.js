@@ -124,7 +124,7 @@ $('.search-btn').click(function(event){
     clear();
     city = $("#userInput").val();
 
-    var geoCodeAPI = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=0d65026d9cfca54d99c9baa64c87a051`
+    var geoCodeAPI = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=0d65026d9cfca54d99c9baa64c87a051`
 
     fetchWeather(geoCodeAPI);
 
@@ -138,7 +138,7 @@ $('.history').click(function(event){
     var cityClass = event.target.id;
     console.log(cityClass);
 
-    var geoCodeAPI = `http://api.openweathermap.org/geo/1.0/direct?q=${cityClass}&appid=0d65026d9cfca54d99c9baa64c87a051`
+    var geoCodeAPI = `https://api.openweathermap.org/geo/1.0/direct?q=${cityClass}&appid=0d65026d9cfca54d99c9baa64c87a051`
 
     fetchWeather(geoCodeAPI);
 })
