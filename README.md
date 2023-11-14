@@ -66,7 +66,7 @@ In this project, a weather dashboard is built to help users retrieve the current
 
 ## Credits
 
-This code quiz was built from scratch, however the design of the quiz is derived from a sample that UofT Bootcamp provided. 
+This weather dashboard was built from scratch, however the design of the dashboard is derived from a sample that UofT Bootcamp provided. 
 
 In addition to that, some websites that helped with the build of this code quiz includes:
 
