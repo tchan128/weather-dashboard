@@ -45,6 +45,14 @@ In this project, a weather dashboard is built to help users retrieve the current
 
 ## Visuals
 
+1. Section displaying current weather:
+
+<img width="1153" alt="Screenshot 2023-11-13 at 7 04 59 PM" src="https://github.com/tchan128/weather-dashboard/assets/56553374/0b856fc8-7721-43df-ae87-4090ad010178">
+
+2. Section display future weather:
+
+<img width="1151" alt="Screenshot 2023-11-13 at 7 05 57 PM" src="https://github.com/tchan128/weather-dashboard/assets/56553374/692f0548-9c0d-4aa5-87e4-ac7a9f3a683a">
+
 
 ## Roadmap
 
